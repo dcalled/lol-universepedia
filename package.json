@@ -1,0 +1,33 @@
+{
+  "name": "lol-universepedia",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "start": "ts-node ./src/main.ts",
+    "dev": "nodemon --config nodemon.json src/main.ts",
+    "dev:debug": "nodemon --config nodemon.json --inspect-brk src/main.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcalled/lol-universepedia.git"
+  },
+  "author": "dcalled",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcalled/lol-universepedia/issues"
+  },
+  "homepage": "https://github.com/dcalled/lol-universepedia#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@types/puppeteer": "^5.4.4",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "puppeteer": "^13.0.1"
+  }
+}
