@@ -3,7 +3,6 @@ import { Story } from "./story.entity";
 
 export class Champion {
 
-    private static repository: Champion[] = [];
 
     private _name: string;
     private _slogan!: string;
@@ -13,28 +12,81 @@ export class Champion {
     private _region!: Region;
     private _bio!: Story;
     private _colorStory!: Story;
-    private _relatedChamps!: Champion[];
+    private _relatedChamps: Champion[] = [];
 
-    private constructor(name: string) {
+    constructor(name: string) {
         this._name = name;
-    }
-
-    static getChamp(name: string): Champion {
-        let champ = this.repository.find(champ => champ.name === name);
-        if(!champ) {
-            champ = new Champion(name);
-            this.repository.push(champ);
-        }
-        return champ;
-    }
-
-    static getAllChamps(): Champion[] {
-        return Champion.repository;
     }
 
 
     // Getters
-    get name() {
+    get name(): string {
         return this._name;
+    }
+
+    get slogan(): string {
+        return this._slogan;
+    }
+
+    get phrase(): string {
+        return this._phrase;
+    }
+
+    get description(): string {
+        return this._description;
+    }
+
+    get role(): string {
+        return this._role;
+    }
+
+    get region(): Region {
+        return this._region;
+    }
+
+    get bio(): Story {
+        return this._bio;
+    }
+
+    get colorStory(): Story {
+        return this._colorStory;
+    }
+
+    get relatedChamps(): Champion[] {
+        return this._relatedChamps;
+    }
+
+
+    // Setters
+    set slogan(slogan: string) {
+        this._slogan = slogan;
+    }
+
+    set phrase(phrase: string) {
+        this._phrase = phrase;
+    }
+
+    set description(description: string) {
+        this._description = description;
+    }
+
+    set role(role: string) {
+        this._role = role;
+    }
+
+    set region(region: Region) {
+        this._region = region;
+    }
+
+    set bio(bio: Story) {
+        this._bio = bio;
+    }
+
+    set colorStory(colorStory: Story) {
+        this._colorStory = colorStory;
+    }
+
+    addRelatedChamp(...champs: Champion[]) {
+        //TODO
     }
 }
