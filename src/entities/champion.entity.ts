@@ -1,3 +1,4 @@
+import { addToUniqueArray } from "src/common/utilities";
 import { Region } from "./region.entity";
 import { Story } from "./story.entity";
 
@@ -87,6 +88,11 @@ export class Champion {
     }
 
     addRelatedChamp(...champs: Champion[]) {
-        //TODO
+        addToUniqueArray(this._relatedChamps, ...champs);
+    }
+
+
+    equals(other: Champion): boolean {
+        return this._name === other.name;
     }
 }
