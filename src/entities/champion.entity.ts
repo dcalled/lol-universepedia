@@ -1,11 +1,12 @@
 import { addToUniqueArray } from "src/common/utilities";
+import { Root } from "./root.entity";
 import { Region } from "./region.entity";
 import { Story } from "./story.entity";
 
-export class Champion {
+export class Champion extends Root {
 
 
-    private _name: string;
+    private _name!: string;
     private _slogan!: string;
     private _phrase!: string;
     private _description!: string;
@@ -15,8 +16,8 @@ export class Champion {
     private _colorStory!: Story;
     private _relatedChamps: Champion[] = [];
 
-    constructor(name: string) {
-        this._name = name;
+    constructor(url: string) {
+        super(url);
     }
 
 
@@ -59,6 +60,10 @@ export class Champion {
 
 
     // Setters
+    set name(name: string) {
+        this._name = name;
+    }
+
     set slogan(slogan: string) {
         this._slogan = slogan;
     }

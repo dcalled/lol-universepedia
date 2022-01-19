@@ -1,5 +1,6 @@
 import { addToUniqueArray } from "src/common/utilities";
 import { Champion } from "./champion.entity";
+import { Root } from "./root.entity";
 
 export enum StoryType {
     Bio,
@@ -17,16 +18,16 @@ export interface StoryPart {
     text?: string;
 }
 
-export class Story {
+export class Story extends Root {
     
-    private _title: string;
+    private _title!: string;
     private _author!: string;
     private _text!: string;
     private _type!: StoryType;
     private _champs: Champion[] = [];
 
-    constructor(title: string) {
-        this._title = title;
+    constructor(url: string) {
+        super(url);
     }
 
     // Getters
@@ -52,6 +53,10 @@ export class Story {
 
 
     // Setters
+    set title(title: string) {
+        this._title = title;
+    }
+
     set author(author: string) {
         this._author = author;
     }
@@ -66,11 +71,6 @@ export class Story {
 
     addChamp(...champs: Champion[]) {
         addToUniqueArray(this._champs, ...champs);
-    }
-
-
-    equals(other: Story): boolean {
-        return this._title === other.title;
     }
 
 }

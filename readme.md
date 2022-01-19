@@ -1,0 +1,1 @@
+There're some divided stories [https://universe.leagueoflegends.com/en_us/story/shadow-and-fortune-story](https://universe.leagueoflegends.com/en_us/story/shadow-and-fortune-story).

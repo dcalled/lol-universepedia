@@ -1,16 +1,17 @@
 import { addToUniqueArray } from "src/common/utilities";
 import { Champion } from "./champion.entity";
+import { Root } from "./root.entity";
 import { Story } from "./story.entity";
 
-export class Region {
+export class Region extends Root {
     
-    private _name: string;
+    private _name!: string;
     private _description!: string;
     private _relatedStories!: Story[];
     private _champs!: Champion[];
 
-    constructor(name: string) {
-        this._name = name;
+    constructor(url: string) {
+        super(url);
     }
 
 
@@ -33,6 +34,10 @@ export class Region {
 
 
     // Setters
+    set name(name: string) {
+        this._name = name;
+    }
+
     set description(description: string) {
         this._description = description;
     }
@@ -45,9 +50,5 @@ export class Region {
         addToUniqueArray(this._champs, ...champs);
     }
 
-
-    equals(other: Region): boolean {
-        return this._name === other.name;
-    }
 
 }
