@@ -1,0 +1,15 @@
+{
+    "baseURL": "https://universe.leagueoflegends.com",
+    "champion": {
+        "path": "champion",
+        "list": {
+            "path": "champions",
+            "selector": "li.item_30l8",
+            "name_tag": "h1"
+        },
+        "related": {
+            "selector": "li.champion_1xlO",
+            "name_tag": "h5"
+        }
+    }
+}
