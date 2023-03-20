@@ -8,4 +8,6 @@ import sc from "./scrapper/scanners/config.json" assert { type: "json" };
 
 const lang = "en_US";
 
-scrapDefaultList(`${sc.baseURL}/${lang}/${sc.champion.list.path}`, sc.champion.list.selector, sc.champion.list.name_tag);
+//console.log(await scrapDefaultList(`${sc.baseURL}/${lang}/${sc.champion.list.path}`, sc.champion.list.selector, sc.champion.list.name_tag));
+//console.log(await scrapDefaultList(`${sc.baseURL}/${lang}/${sc.champion.path}/aphelios`, sc.champion.related.selector, sc.champion.related.name_tag));
+console.log(await scrapDefaultList(`${sc.baseURL}/${lang}/${sc.champion.path}/ahri`, sc.champion.stories.selector, sc.champion.stories.name_tag));

@@ -1,21 +1,26 @@
-import { Singleton } from '../../common/Singleton';
+import { scrapPage } from '../../source';
 
-
-export async function scrapDefaultList(url: string, listSelector: string, keyTag: string) {
-    const browser = await Singleton.getBrowserInstance();
-    const page = await browser.newPage();
-    await page.goto(url);
-    await page.waitForSelector(listSelector);
-    let urls = await page.$$eval(listSelector, (links, tag) => {
-        return links.map(el => {
-            const t = { 
-                url: el.querySelector("a")!.href, 
-                name: el.querySelector(<string>tag)!.textContent
-            };
-            return t;
-        })
-    }, keyTag);
-    console.log(urls)
-
-    await page.close();
+interface DefaultListItem {
+    url: string;
+    name: string;
 }
+
+type DefaultList = Array<DefaultListItem>;
+
+export async function scrapDefaultList(url: string, listSelector: string, keyTag: string): Promise<any> {
+    return await scrapPage/*<DefaultList>*/(url, async page => {
+        await page.waitForSelector(listSelector);
+        let urls = await page.$$eval(listSelector, (links: Element[], tag: string) => {
+            return links.map(el => {
+                const t = { 
+                    url: el.querySelector("a")!.href, 
+                    name: Array.from(el.querySelectorAll(tag))!.reduce((prev, curr) => `${prev}${curr.textContent}`, '')
+                };
+                return t;
+            })
+        }, keyTag);
+        return urls;
+    });
+}
+
+

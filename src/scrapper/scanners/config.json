@@ -10,6 +10,24 @@
         "related": {
             "selector": "li.champion_1xlO",
             "name_tag": "h5"
+        },
+        "region": {
+
+        },
+        "bio": {
+
+        },
+        "stories": {
+            "selector": "div[id^=\"story-preview\"]",
+            "name_tag": "h1>span"
         }
+    },
+    "region": {
+        "list": {
+
+        }
+    },
+    "story": {
+
     }
 }

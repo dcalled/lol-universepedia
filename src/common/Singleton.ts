@@ -1,13 +1,13 @@
-import * as puppeteer from "puppeteer";
+import { Browser, launch } from "puppeteer";
 
 export class Singleton {
-    private static browser: puppeteer.Browser;
+    private static browser: Browser;
 
     constructor() {}
 
-    public static async getBrowserInstance(): Promise<puppeteer.Browser> {
+    public static async getBrowserInstance(): Promise<Browser> {
         if(Singleton.browser == undefined || !Singleton.browser.isConnected()) 
-            Singleton.browser = await puppeteer.launch();
+            Singleton.browser = await launch();
         
         return Singleton.browser;
     }

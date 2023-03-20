@@ -29,7 +29,7 @@
             "request": "launch",
             "name": "Debug (Good one)",
             "args": ["${workspaceFolder}/src/main.ts"],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register", "--loader", "ts-node/esm"],
             "sourceMaps": true,
             "cwd": "${workspaceRoot}",
             "protocol": "inspector"
