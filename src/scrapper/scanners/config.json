@@ -23,8 +23,20 @@
         }
     },
     "region": {
+        "path": "region",
         "list": {
-
+            "path": "regions",
+            "selector": "a.factionWrapper_9Uuf",
+            "name_tag": "h3"
+        },
+        "champs": {
+            "selector": "li.item_30l8",
+            "name_tag": "h1"
+        },
+        "stories": {
+            "selector": "a.itemWrapper_22mb",
+            "name_tag": "h3",
+            "scroll": "div.QCard_hextech_wrapper_7db5:nth-child(2) > div"
         }
     },
     "story": {
