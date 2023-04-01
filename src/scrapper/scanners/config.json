@@ -40,6 +40,15 @@
         }
     },
     "story": {
-
+        "path": "story",
+        "list": {
+            "path": "explore/short-stories/a-z",
+            "selector": "div.CardWrapper_3s9j>li",
+            "name_tag": "h3"
+        },
+        "champs": {
+            "selector": "a.swiper-slide",
+            "name_tag": "h2"
+        }
     }
 }

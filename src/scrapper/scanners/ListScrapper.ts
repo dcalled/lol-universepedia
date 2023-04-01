@@ -1,3 +1,4 @@
+import { Viewport } from 'puppeteer';
 import { scrapPage } from '../../source';
 
 interface DefaultListItem {
@@ -7,7 +8,7 @@ interface DefaultListItem {
 
 type DefaultList = Array<DefaultListItem>;
 
-export async function scrapDefaultList(url: string, listSelector: string, keyTag: string, buttonSelector: string | null = null) {
+export async function scrapDefaultList(url: string, listSelector: string, keyTag: string, buttonSelector?: string, viewport?: Viewport) {
     return await scrapPage<DefaultList>(url, async page => {
         let urls: DefaultList = [];
         for (let i = 0; i<40; i++) {
@@ -21,7 +22,7 @@ export async function scrapDefaultList(url: string, listSelector: string, keyTag
                     return t;
                 })
             }, keyTag);
-            if(buttonSelector == null) {
+            if(!buttonSelector) {
                 urls = newUrls;
                 break;
             }
@@ -33,7 +34,7 @@ export async function scrapDefaultList(url: string, listSelector: string, keyTag
             await (await page.$(buttonSelector))!.click();
         }
         return urls;
-    });
+    }, true, viewport);
 }
 
 /* export async function scrapDefaultList(url: string, listSelector: string, keyTag: string): Promise<DefaultList> {
